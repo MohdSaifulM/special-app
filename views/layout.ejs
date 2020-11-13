@@ -10,11 +10,29 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <style>
+      .sidebar {
+        width: 250px;
+        height: 100vh;
+        background: #535353;
+      }
+      .main-content {
+        width: calc(100vw - 250px);
+      }
+    </style>
   </head>
   <body>
-    <div>
-      <div>sidebar</div>
-      <div><%- body %></div>
+    <div class="d-flex">
+      <div class="sidebar">
+        <h1>TODO LAH</h1>
+
+        <nav>
+          <li><a href="/">Todos</a></li>
+          <li><a href="/create">Create</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </nav>
+      </div>
+      <div class="main-content p-3"><%- body %></div>
     </div>
 
     <script
