@@ -33,13 +33,15 @@ router.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/auth/login" }),
   (req, res) => {
+    req.flash("success", "Logged in successfully! ");
     res.redirect("/"); // TO UPDATE ONCE VIEWS DONE
   }
 );
 
 router.get("/logout", (req, res) => {
+  req.flash("info", "Logged out successfully! ");
   req.logOut();
-  res.redirect("/"); // TO UPDATE ONCE VIEWS DONE
+  res.redirect("/auth/login"); // TO UPDATE ONCE VIEWS DONE
 });
 
 module.exports = router;

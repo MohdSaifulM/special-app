@@ -1,10 +1,12 @@
 <div class="row">
   <% todos.forEach(todo => { %>
-  <div class="col-4">
+  <div class="col-4 col-md-4 mb-4">
     <div class="card">
       <div class="card-body">
         <div class="card-title"><%= todo.title %></div>
-        <%= todo.description %>
+        <%= todo.description %> by <% if(todo.user) {%>
+        <div class="text-muted"><%= todo.user.email %></div>
+        <% } %>
         <div class="card-title"><%= todo.fromNow() %></div>
       </div>
     </div>
