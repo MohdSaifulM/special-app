@@ -11,6 +11,7 @@ router.get("/register", (req, res) => {
   res.render("auth/register", { layout: "auth_layout" });
 });
 
+
 //REGISTER
 router.post("/register", async (req,res) => {
   // console.log("before bcrypt", req.body); 
@@ -36,7 +37,6 @@ router.post('/login',
   (req, res) => {
     res.redirect('/'); // TO UPDATE ONCE VIEWS DONE
   });
-
 
 
 module.exports = router;
