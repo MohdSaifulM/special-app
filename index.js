@@ -11,6 +11,7 @@ require("./lib/mongoose");
 const app = express();
 
 //middlewares
+app.use(express.urlencoded({ extended: true })); //listens for form data
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 
