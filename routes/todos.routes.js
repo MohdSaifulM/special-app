@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const Todo = require("../models/todo.models");
+const checkuser = require("../lib/usercheck");
 const { body, validationResult } = require("express-validator");
 
 router.get("/", async (req, res) => {
   try {
-    let todos = await Todo.find();
+    let todos = await Todo.find().populate("user");
     res.render("todos/index", { todos });
   } catch (error) {
     console.log(error);
@@ -14,6 +15,7 @@ router.get("/", async (req, res) => {
 router.post(
   "/create",
   [
+    checkuser,
     body("title").isLength({ min: 4 }),
     body("description").isLength({ min: 4 }),
   ],
@@ -28,7 +30,7 @@ router.post(
         return res.redirect("/");
       }
 
-      let todo = new Todo({ title, description });
+      let todo = new Todo({ title, description, user: req.user._id });
       await todo.save();
       res.redirect("/");
     } catch (error) {
