@@ -1,11 +1,22 @@
 require("dotenv").config();
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const mongoose = require("./lib/mongoose");
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(expressLayouts);
+
+//--connect mongo
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: new MongoStore({ url: process.env.DB }),
+  })
+);
 
 app.use("/auth", require("./routes/auth.routes"));
 
