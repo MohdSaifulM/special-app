@@ -1,5 +1,13 @@
-<ul>
-	<% todos.forEach(todo => { %>
-	<li><%= todo.title %> - <%= todo.description %> </li>
-	<%} )%>
-</ul>
+<div class="row">
+  <% todos.forEach(todo => { %>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title"><%= todo.title %></div>
+        <%= todo.description %>
+        <div class="card-title"><%= todo.fromNow() %></div>
+      </div>
+    </div>
+  </div>
+  <%} )%>
+</div>
