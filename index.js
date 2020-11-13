@@ -31,7 +31,8 @@ app.use(passport.session());
 app.use(flash());
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user; //setting a global variable for my app to be accessible by currrent user
-  res.locals.flash = req.flash(); //
+  console.log(req.flash());
+  res.locals.alerts = req.flash(); //
   next(); //then continues the code
 });
 

@@ -22,7 +22,9 @@ router.post(
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.flash("error", errors.array());
+        console.log("routes", errors);
+        req.flash("danger", errors.array());
+
         return res.redirect("/");
       }
 

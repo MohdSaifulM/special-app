@@ -22,6 +22,7 @@
     </style>
   </head>
   <body>
+    <%- include('partials/notifications') %>
     <div class="d-flex">
       <div class="sidebar">
         <h1>TODO LAH</h1>
@@ -63,16 +64,23 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <div class="modal-body">
+            <div>
+              <form method="POST" action="/create">
+                <div class="form-row mb-3">
+                  <input name="title" type="text" class="form-control" />
+                </div>
+                <div class="form-row mb-3">
+                  <textarea name="description" class="form-control"></textarea>
+                </div>
+
+                <div class="form-row mb-3">
+                  <button type="submit" class="btn btn-block btn-primary">
+                    Add Post
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
