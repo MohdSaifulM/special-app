@@ -1,5 +1,8 @@
 <% if(alerts.danger) {%> <% alerts.danger.forEach((msg) => { %>
-<div class="alert alert-danger mb-0">
-  Tetsing <%= msg.msg %> for <%= msg.params %>
+<div class="alert alert-danger mb-0 alert-dismissible fade show" role="alert">
+  Tetsing <%= msg.msg %> for <%= msg.param %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 <% })%> <% } %>

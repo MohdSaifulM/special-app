@@ -36,7 +36,9 @@
             href="#"
             >Create</a
           >
-          <a class="nav-link" href="/logout">logout</a>
+          <% if(currentUser) {%>
+          <a class="nav-link" href="/auth/logout">logout</a>
+          <% } %>
         </nav>
       </div>
       <div class="main-content p-3"><%- body %></div>
