@@ -1,1 +1,5 @@
-jddjdj
+<% if(alerts.danger) {%> <% alerts.danger.forEach((msg) => { %>
+<div class="alert alert-danger mb-0">
+  Tetsing <%= msg.msg %> for <%= msg.params %>
+</div>
+<% })%> <% } %>
